@@ -40,31 +40,28 @@ function preskey(e){
         winDiv.innerHTML = ("Wins: " + wins);
     } else if (guessesLeft != 0){
         guessesLeft--;
-        GuessesLeft.innerHTML = ("Guesses Left: " + guessesLeft)
+        GuessesLeft.innerHTML = ("Guesses Left: " + guessesLeft);
         WrngChose();
     } else if (guessesLeft == 0) {
         losses++;
         Losses();
-        lose = confirm("YOU LOSE,WOULD YOU LIKE TO CONTINUE?");
+        lose = confirm("YOU HAVE CHANCE,WOULD YOU LIKE TO CONTINUE?");
         Reset();
     }
 }
 
 
 function Reset() {
-    if (lose===true && losses<4) {
+    if (lose===true && losses<3) {
         guessesLeft = 10;
-        GuessesLeft.innerHTML = ("Guesses Left: " + guessesLeft);
-        // userWrongChose.style.height="auto";
-        // document.getElementsByClassName('container').style.height="auto";
+        wrongGuesses = [];   
     }
-    else{
-        alert("YOU LOSE!");
-        guessesLeft = 10;
+    else if(losses=3){
         wins = 0;
-        losses = 0
+        losses = 0;
         wrongGuesses = [];
-        preskey();  
+        guessesLeft = 10;
+        alert("You Lose!");     
     }
 }
 
