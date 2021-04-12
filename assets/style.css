@@ -1,0 +1,49 @@
+*{
+    font-family: 'Electrolize', sans-serif !important;
+}
+body{
+    background-image: url(../images/gif1.gif);
+    /* background-repeat: no-repeat;
+    background-size: cover; */
+}
+.Base {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    height: 500px;
+    width: 50%;
+    background-color: gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; 
+    align-items: center;  
+    padding: 10px;  
+}
+.DivItem {
+    background-color: lightgray;
+    height: 70px;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    font-size: 25px;
+   
+}
+.container > .DivItem:last-child{
+    margin-bottom: 20px;
+    word-wrap: break-word !important;
+}
+.GameName {
+    font-size:50px;
+    font-weight: bolder;
+}
+.slg{
+    align-self: flex-start;
+    margin-left:69px;
+    font-size: 20px;
+    font-weight: bold;
+    
+}
