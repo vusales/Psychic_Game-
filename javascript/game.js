@@ -28,7 +28,7 @@ let guessesLeft = 10;
 let wrongGuesses = [];
 
 
-function preskey(e) {
+function preskey(e){
     userChose = e.key;
     compchose = select_random_leters();
     console.log(compchose);
@@ -36,8 +36,9 @@ function preskey(e) {
     GuessesLeft = document.getElementById('guessesLeft');
     if (userChose === compchose) {
         wins++;
+        guessesLeft++;
         winDiv.innerHTML = ("Wins: " + wins);
-    } else if (guessesLeft != 0) {
+    } else if (guessesLeft != 0){
         guessesLeft--;
         GuessesLeft.innerHTML = ("Guesses Left: " + guessesLeft)
         WrngChose();
@@ -51,19 +52,19 @@ function preskey(e) {
 
 
 function Reset() {
-    if (lose) {
+    if (lose===true && losses<4) {
         guessesLeft = 10;
         GuessesLeft.innerHTML = ("Guesses Left: " + guessesLeft);
-        userWrongChose.style.heigt="auto";
-        userWrongChose.style.wordWrap="break-word";
-        document.getElementsByClassName('container').style.heigt="auto";
+        // userWrongChose.style.height="auto";
+        // document.getElementsByClassName('container').style.height="auto";
     }
     else{
+        alert("YOU LOSE!");
         guessesLeft = 10;
         wins = 0;
         losses = 0
         wrongGuesses = [];
-        alert("See you!");
+        preskey();  
     }
 }
 

@@ -34,7 +34,8 @@ body{
 }
 .container > .DivItem:last-child{
     margin-bottom: 20px;
-    word-wrap: break-word !important;
+    word-wrap: break-word;
+    word-break: break-all;
 }
 .GameName {
     font-size:50px;
