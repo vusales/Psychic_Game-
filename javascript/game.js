@@ -9,6 +9,10 @@
 
 var alphabet = ["a", "b", "c", , "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
+let wins = 0;
+let losses = 0;
+let guessesLeft = 10;
+let wrongGuesses = [];
 var cnfr = confirm("Would You like to start?");
 
 var select_random_leters = function () {
@@ -22,11 +26,6 @@ if (cnfr) {
 else {
     alert("See You Later!");
 }
-let wins = 0;
-let losses = 0;
-let guessesLeft = 10;
-let wrongGuesses = [];
-
 
 function preskey(e){
     userChose = e.key;
@@ -36,32 +35,33 @@ function preskey(e){
     GuessesLeft = document.getElementById('guessesLeft');
     if (userChose === compchose) {
         wins++;
-        guessesLeft++;
+        // guessesLeft++;
         winDiv.innerHTML = ("Wins: " + wins);
+    } else if(alphabet.indexOf(userChose)== -1){ 
+            alert("Please,select only letters!"); 
     } else if (guessesLeft != 0){
         guessesLeft--;
         GuessesLeft.innerHTML = ("Guesses Left: " + guessesLeft);
         WrngChose();
-    } else if (guessesLeft == 0) {
+    } else if (guessesLeft==0) {
         losses++;
         Losses();
-        lose = confirm("YOU HAVE CHANCE,WOULD YOU LIKE TO CONTINUE?");
-        Reset();
+        lose = confirm("YOU HAVE CHANCE,WOULD YOU LIKE TO CONTINUE?"); 
+        Reset();   
     }
 }
-
 
 function Reset() {
     if (lose===true && losses<3) {
         guessesLeft = 10;
         wrongGuesses = [];   
     }
-    else if(losses=3){
+    else if(losses==3){
+        alert("You Lose!"); 
         wins = 0;
         losses = 0;
         wrongGuesses = [];
-        guessesLeft = 10;
-        alert("You Lose!");     
+        guessesLeft = 10;    
     }
 }
 
@@ -75,7 +75,5 @@ function WrngChose() {
 function Losses() {
     document.getElementById('meglubiyyetS').innerHTML = ("Losses:" + losses);
 }
-
-
 
 window.onkeypress = preskey;

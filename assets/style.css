@@ -15,7 +15,7 @@ body{
 .container{
     height: 500px;
     width: 50%;
-    background-color: gray;
+    background-color: silver;
     display: flex;
     flex-direction: column;
     justify-content: space-around; 
@@ -23,7 +23,7 @@ body{
     padding: 10px;  
 }
 .DivItem {
-    background-color: lightgray;
+    background-color: gray;
     height: 70px;
     width: 80%;
     display: flex;
